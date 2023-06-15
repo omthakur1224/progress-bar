@@ -1,0 +1,25 @@
+#progress-bar {
+    height: "50px";
+}
+
+.progress-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.progress-bar-container {
+    position: relative;
+}
+
+#progress-label {
+    position: absolute;
+    top: -10;
+    left: 0;
+    padding-left: 2px;
+}
+
+#buttons {
+    margin-top: 10px;
+}

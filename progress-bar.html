@@ -1,42 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>progress-bar</title>
-    <style>
-        .progress-bar{
-            height: "20px";
-        }
-        .progress-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        }
-
-        .progress-bar-container {
-        position: relative;
-        }
-
-        #progress-label {
-        position: absolute;
-        top: -10;
-        left: 0;
-        padding-left: 2px;
-        }
-        #buttons{
-            margin-top: 10px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="progress-bar.css">
 </head>
 <body >
-    <div id="buttons">
-
+    <!-- <div id="buttons">
         <button id="prev" onclick="handleProgressBar(-20)">Prev</button>
         <button id="next" onclick="handleProgressBar(20)">Next</button>
-    </div>
+    </div> -->
     <div class="progress-wrapper">
         <div class="progress-bar-container">
             <h2>progress Bar</h2>
@@ -44,40 +17,6 @@
             <div id="progress-label">0%</div>
         </div>
     </div>
-    
-
-        
 </body> 
+<script src="./progress-bar.js"></script>
 </html>
-<script>
-    let progressBar=document.getElementById('progress-bar');
-    let progressLabel=document.getElementById('progress-label');
-
-    function handleProgressBar(curr_value){
-        progressBar.value=+(progressBar.value)+curr_value;
-        progressLabel.textContent=`${progressBar.value}%`;
-        const progressWidth = (progressBar.value / progressBar.max) * 100;
-        progressLabel.style.transform = `translateX(${progressWidth}%)`;
-   }
-   progressBar.addEventListener('click', handleProgressBarClick);
-
-   //progress bar click update
-function handleProgressBarClick(event) {
-  const clickX = event.offsetX;
-  const barWidth = progressBar.clientWidth;
-  const clickPercentage = (clickX / barWidth) * 100;
-  
-//   const newValue = Math.round((clickPercentage / 100) * progressBar.max);
-if(clickX){
-    if(+progressBar.value==0){
-        handleProgressBar(20)
-    }
-    else if(+progressBar.value<clickPercentage){
-        handleProgressBar(20)
-    }else if(+progressBar.value>clickPercentage){
-        handleProgressBar(-20)
-    }
-}
-}
-
-</script>
